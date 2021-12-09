@@ -18,5 +18,9 @@ namespace Team4_FinalProject.Models
         //Establish Many to One with Ticket
         public int TicketId { get; set; }
         public Ticket Ticket { get; set; }
+
+        //used for display in ticket detail display
+        public string UserId { get; set; }
+        public User User { get; set; }
     }
 }
