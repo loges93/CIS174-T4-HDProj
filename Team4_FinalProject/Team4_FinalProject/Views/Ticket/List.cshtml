@@ -1,0 +1,29 @@
+﻿@model List<Ticket>
+
+@{
+    ViewBag.Title = "Ticket List";
+ }
+
+<h2>Ticket List</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ticket ID</th>
+            <th>User</th>
+            <th>Status</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+        <tr>
+            <td>@ticket.TicketId</td>
+            <td>@ticket.UserId</td>
+            <td>@ticket.Status</td>
+            <td>@ticket.Category</td>
+        </tr>
+        }
+    </tbody>
+</table>
