@@ -19,6 +19,8 @@ namespace Team4_FinalProject.Models
         {
            
             modelBuilder.Entity<User>().Property(p => p.IsTechnician).HasDefaultValue(false);
+            modelBuilder.Entity<Ticket>().Property(t => t.DateOpened).HasDefaultValue(DateTime.Now);
+            modelBuilder.Entity<Note>().Property(t => t.DateCreated).HasDefaultValue(DateTime.Now);
 
             //Seed Users
             User user1 = new();

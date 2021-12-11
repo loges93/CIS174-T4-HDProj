@@ -2,7 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1 class="text-center">Welcome @TempData["cu_first"]</h1>
-</div>
+<style>
+    #mainheader {
+        animation: slidedown 2s;
+        
+    }
+    #jumb{
+        overflow-y: hidden;
+    }
+</style>
 
+<div id="jumb"class="jumbotron">
+    <h1 id="mainheader" class="text-center">Welcome @TempData["cu_first"]</h1>
+</div>

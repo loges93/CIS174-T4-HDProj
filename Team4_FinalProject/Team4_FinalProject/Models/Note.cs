@@ -11,7 +11,7 @@ namespace Team4_FinalProject.Models
         [Key]
         public int NoteId { get; set; }
 
-        public DateTime DateCreated = DateTime.Now;
+        public DateTime DateCreated { get; set; }
 
         public string Content { get; set; }
 
