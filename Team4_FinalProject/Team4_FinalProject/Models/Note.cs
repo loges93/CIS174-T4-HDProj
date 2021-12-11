@@ -13,6 +13,8 @@ namespace Team4_FinalProject.Models
 
         public DateTime DateCreated { get; set; }
 
+        [Required]
+        [StringLength(20000, MinimumLength = 1)]
         public string Content { get; set; }
 
         //Establish Many to One with Ticket

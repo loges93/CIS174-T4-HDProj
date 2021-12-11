@@ -16,7 +16,15 @@ namespace Team4_FinalProject.Controllers
 
         public IActionResult Add()
         {
-            return View("Add");
+            if (ModelState.IsValid)
+            {
+                // code that adds ticket to database
+                return RedirectToAction("Ticket");  // redirect to view all tickets page
+            }
+            else // Return to add ticket page w/ error message
+            {
+                return View("Add");
+            }
         }
 
         public IActionResult Detail()
