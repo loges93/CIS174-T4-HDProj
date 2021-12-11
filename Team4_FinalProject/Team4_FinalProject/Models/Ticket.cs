@@ -13,7 +13,7 @@ namespace Team4_FinalProject.Models
 
         public string Category { get; set; }
 
-        public DateTime DateOpened = DateTime.Now;
+        public DateTime DateOpened { get; set; }
 
         public string Status { get; set; }
 
