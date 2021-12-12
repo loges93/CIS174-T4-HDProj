@@ -68,6 +68,26 @@ namespace Team4_FinalProject.Models
             modelBuilder.Entity<User>().HasData(reg_user);
 
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Ticket>().HasData(
+                new Ticket
+                {
+                    TicketId = 1,
+                    Category = "Reported Issue 1",
+                    DateOpened = DateTime.Now,
+                    Status = "Open",
+                    UserId =5
+                },
+
+                new Ticket
+                {
+                    TicketId = 2,
+                    Category = "Reported Issue ",
+                    DateOpened = DateTime.Now,
+                    Status = "Open",
+                    UserId=5
+                }
+                );
         }
     }
 }

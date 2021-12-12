@@ -1,14 +1,15 @@
-﻿@model TicketListViewModel
+﻿@model IEnumerable<Ticket>
 @{ 
     ViewBag.Title = "Ticket List";
 }
 
 <h2 class="display-4">Ticket List</h2>
 
-@*<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Ticket ID</th>
+            <th>Opened By</th>
             <th>Issue Description</th>
             <th>Ticket Status</th>
             <th>Date Opened</th>
@@ -16,17 +17,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(Ticket ticket in Model.Tickets)
+        @foreach(Ticket ticket in Model)
             {
                 <tr>
                     <td>@ticket.TicketId</td>
+                    <td>@ticket.UserId</td>
                     <td>@ticket.Category</td>
                     <td>@ticket.Status</td>
                     <td>@ticket.DateOpened</td>
                     <td>
-                        <a asp-controller="Ticket" asp-action="View">View Details</a>
+                        <a asp-controller="Ticket" asp-action="Detail" asp-route-id="@ticket.TicketId">View Details</a>
                     </td>
                 </tr>
             }      
     </tbody>
-</table>*@
+</table>

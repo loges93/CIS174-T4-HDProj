@@ -9,9 +9,12 @@ namespace Team4_FinalProject.Controllers
 {
     public class TicketController : Controller
     {
+        private TicketManagerDbContext context { get; set; }
+        public TicketController(TicketManagerDbContext ctx) => context = ctx;
         public IActionResult Index()
         {
-            return View("List");
+            var tickets = context.Tickets.OrderBy(t => t.TicketId).ToList();
+            return View(tickets);
         }
 
         [HttpGet]
@@ -31,9 +34,11 @@ namespace Team4_FinalProject.Controllers
             }
         }
 
-        public IActionResult Detail()
+        [HttpGet]
+        public IActionResult Detail(int id)
         {
-            return View("Detail");
+            var ticket = context.Tickets.Find(id);
+            return View("Detail",ticket);
         }
     }
 }
