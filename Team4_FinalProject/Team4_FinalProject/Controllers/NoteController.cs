@@ -8,7 +8,7 @@ namespace Team4_FinalProject.Controllers
 {
     public class NoteController : Controller
     {
-        public IActionResult Add(int id)
+        public IActionResult Index()
         {
             return View();
         }
