@@ -9,36 +9,55 @@ namespace Team4_FinalProject.Controllers
 {
     public class TicketController : Controller
     {
-        private TicketManagerDbContext context { get; set; }
-        public TicketController(TicketManagerDbContext ctx) => context = ctx;
+        private TicketManagerDbContext context;
+
+        public TicketController(TicketManagerDbContext ctx)
+        {
+            context = ctx;
+        }
         public IActionResult Index()
         {
-            var tickets = context.Tickets.OrderBy(t => t.TicketId).ToList();
-            return View(tickets);
+            return View("List");
         }
 
         [HttpGet]
-        public ViewResult Add() => View();
+        public IActionResult Add(int id)
+        {
+            //To display user name
+            var user = context.Users.Find(id);
+            ViewBag.User = user;
+            Ticket model = new();
+            model.UserId = id;
+            return View(model);
+        }
 
         [HttpPost]
         public IActionResult Add(Ticket ticket)
         {
             if (ModelState.IsValid)
             {
-                // code that adds ticket to database
-                return View("Detail");  // redirect to view all tickets page
+                context.Tickets.Add(ticket);
+                context.SaveChanges();
+                return RedirectToAction("Index", "Home");
+                
             }
-            else // return to add page with error details
+            else
             {
+                ModelState.AddModelError("Invalid", "Model State was invalid what did you do?");
                 return View(ticket);
             }
         }
 
         [HttpGet]
-        public IActionResult Detail(int id)
+        public IActionResult Details(int id)
         {
-            var ticket = context.Tickets.Find(id);
-            return View("Detail",ticket);
+            Ticket ticket = context.Tickets.Find(id);
+            ViewBag.Ticket = ticket;
+            //Also grabbing tickets like I showed in others I don't know how to load related
+            //Entities whilst grabbing only one entity 
+            List<Note> notes = context.Notes.Where(c => c.TicketId == id).ToList();
+            ViewBag.Notes = notes;
+            return View();
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model TicketNoteViewModel
+
+@{
+    ViewData["Title"] = " | Ticket Details";
+}
+
+<h1 style="margin-bottom: 1em;">Ticket Details</h1>
+
+<h3 class="m-2"><span class="text-primary">Date Created:</span> @ViewBag.Ticket.DateOpened</h3>
+
+<h3 class="m-2"><span class="text-primary">Status:</span> @ViewBag.Ticket.Status</h3>
+
+<h3 class="m-2"><span class="text-primary">Issue:</span> </h3>
+
+<p class="p-2 border" style="font-size: 1.4em; min-height: 10em;">@ViewBag.Ticket.Issue</p>
+
+<h3 class="m-2 text-primary">Notes: </h3>
+<a class="btn btn-primary mb-2" asp-controller="Note" asp-action="Add" asp-route-data="@ViewBag.Ticket.TicketId">Add Note</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Note Id</th>
+            <th>Content</th>
+            <th>Date Opened</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Note note in ViewBag.Notes)
+        {
+            <tr>
+                <td>@note.TicketId</td>
+                @if (note.Content.Length > 20)
+                {
+                    <td>@note.Content.Substring(0, 20)</td>
+                }
+                else
+                {
+                    <td>@note.Content</td>
+                }
+                <td>@note.DateCreated</td>
+                <td>
+                    <a asp-controller="Note" asp-route-id="@note.NoteId" asp-action="Details">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

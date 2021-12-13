@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Team4_FinalProject.Models;
 
 namespace Team4_FinalProject.Migrations
 {
     [DbContext(typeof(TicketManagerDbContext))]
-    partial class TicketManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211213081208_remaketoolazytodelete")]
+    partial class remaketoolazytodelete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
