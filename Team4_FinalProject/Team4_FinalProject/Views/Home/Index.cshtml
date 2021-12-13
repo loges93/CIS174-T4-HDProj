@@ -5,13 +5,57 @@
 <style>
     #mainheader {
         animation: slidedown 2s;
-        
     }
-    #jumb{
+
+    #jumb {
         overflow-y: hidden;
     }
 </style>
 
-<div id="jumb"class="jumbotron">
-    <h1 id="mainheader" class="text-center">Welcome @TempData["cu_first"]</h1>
-</div>
+@if (ViewBag.User.IsTechnician)
+{
+    <div id="jumb" class="jumbotron">
+        <h1 id="mainheader" class="text-center text-primary">Welcome @ViewBag.User.FirstName</h1>
+    </div>
+}
+else
+{
+    <div id="jumb" class="jumbotron">
+        <h1 id="mainheader" class="text-center">Welcome @ViewBag.User.FirstName</h1>
+    </div>
+}
+
+<h2 class="display-4">Ticket List</h2>
+<a class="btn btn-primary mb-2" asp-controller="Ticket" asp-action="Add" asp-route-id="@ViewBag.User.UserId">Add Ticket</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Issue Description</th>
+            <th>Ticket Status</th>
+            <th>Date Opened</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Ticket ticket in ViewBag.Tickets)
+        {
+        <tr>
+            <td>@ticket.TicketId</td>
+            @if (ticket.Issue.Length > 20)
+            {
+                <td>@ticket.Issue.Substring(0, 20)</td>
+            }
+            else
+            {
+                <td>@ticket.Issue</td>
+            }
+            <td>@ticket.Status</td>
+            <td>@ticket.DateOpened</td>
+            <td>
+                <a asp-controller="Ticket" asp-route-id="@ticket.TicketId" asp-action="Details">View Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

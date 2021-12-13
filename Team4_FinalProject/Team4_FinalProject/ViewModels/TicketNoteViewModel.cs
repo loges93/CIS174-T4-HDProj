@@ -7,7 +7,7 @@ namespace Team4_FinalProject.Models
 {
     public class TicketNoteViewModel
     {
-        public IEnumerable<Ticket> Tickets { get; set; }
-        public IEnumerable<Note> Notes { get; set; }
+        public ICollection<Ticket> Tickets { get; set; }
+        public ICollection<Note> Notes { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Team4_FinalProject.Models;
 using Team4_FinalProject.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace Team4_FinalProject.Controllers
 {
@@ -32,9 +33,7 @@ namespace Team4_FinalProject.Controllers
                 var user = context.Users.Single(u => u.Username == model.Username);
                 if (user.Password == model.Password)
                 {
-                    TempData["cu_username"] = user.Username;
-                    TempData["cu_id"] = user.UserId;
-                    TempData["cu_first"] = user.FirstName;
+                    HttpContext.Session.SetInt32("user_id", user.UserId);
                     return RedirectToAction("Index", "Home");
                 }
                 else

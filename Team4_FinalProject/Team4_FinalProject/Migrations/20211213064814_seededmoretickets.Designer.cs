@@ -10,8 +10,8 @@ using Team4_FinalProject.Models;
 namespace Team4_FinalProject.Migrations
 {
     [DbContext(typeof(TicketManagerDbContext))]
-    [Migration("20211212191337_AddDateTimeFields")]
-    partial class AddDateTimeFields
+    [Migration("20211213064814_seededmoretickets")]
+    partial class seededmoretickets
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,14 +29,12 @@ namespace Team4_FinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(20000)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 12, 12, 13, 13, 36, 348, DateTimeKind.Local).AddTicks(1969));
+                        .HasDefaultValue(new DateTime(2021, 12, 13, 0, 48, 13, 390, DateTimeKind.Local).AddTicks(6039));
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
@@ -63,15 +61,13 @@ namespace Team4_FinalProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
                     b.Property<DateTime>("DateOpened")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 12, 12, 13, 13, 36, 343, DateTimeKind.Local).AddTicks(6861));
+                        .HasDefaultValue(new DateTime(2021, 12, 13, 0, 48, 13, 385, DateTimeKind.Local).AddTicks(7256));
+
+                    b.Property<string>("Issue")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
@@ -88,19 +84,35 @@ namespace Team4_FinalProject.Migrations
                     b.HasData(
                         new
                         {
-                            TicketId = 1,
-                            Category = "Reported Issue 1",
-                            DateOpened = new DateTime(2021, 12, 12, 13, 13, 36, 350, DateTimeKind.Local).AddTicks(5039),
-                            Status = "Open",
+                            TicketId = 3,
+                            DateOpened = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Life?",
+                            Status = "In Progress",
                             UserId = 5
                         },
                         new
                         {
+                            TicketId = 1,
+                            DateOpened = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Electronics?",
+                            Status = "In Progress",
+                            UserId = 4
+                        },
+                        new
+                        {
                             TicketId = 2,
-                            Category = "Reported Issue ",
-                            DateOpened = new DateTime(2021, 12, 12, 13, 13, 36, 350, DateTimeKind.Local).AddTicks(6713),
-                            Status = "Open",
+                            DateOpened = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Toaster?",
+                            Status = "Completed",
                             UserId = 5
+                        },
+                        new
+                        {
+                            TicketId = 4,
+                            DateOpened = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Issue = "Printer?",
+                            Status = "Completed",
+                            UserId = 1
                         });
                 });
 
@@ -112,9 +124,7 @@ namespace Team4_FinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsTechnician")
                         .ValueGeneratedOnAdd()
@@ -122,19 +132,13 @@ namespace Team4_FinalProject.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
 
@@ -208,7 +212,7 @@ namespace Team4_FinalProject.Migrations
             modelBuilder.Entity("Team4_FinalProject.Models.Ticket", b =>
                 {
                     b.HasOne("Team4_FinalProject.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Tickets")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -219,6 +223,11 @@ namespace Team4_FinalProject.Migrations
             modelBuilder.Entity("Team4_FinalProject.Models.Ticket", b =>
                 {
                     b.Navigation("Notes");
+                });
+
+            modelBuilder.Entity("Team4_FinalProject.Models.User", b =>
+                {
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

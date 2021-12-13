@@ -25,6 +25,8 @@ namespace Team4_FinalProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddDbContext<TicketManagerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
@@ -45,6 +47,7 @@ namespace Team4_FinalProject
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 

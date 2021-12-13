@@ -13,16 +13,10 @@ namespace Team4_FinalProject.Models
 
         public DateTime DateCreated { get; set; }
 
-        [Required]
-        [StringLength(20000, MinimumLength = 1)]
         public string Content { get; set; }
 
         //Establish Many to One with Ticket
         public int TicketId { get; set; }
         public Ticket Ticket { get; set; }
-
-        //used for display in ticket detail display
-        public string UserId { get; set; }
-        public User User { get; set; }
     }
 }
