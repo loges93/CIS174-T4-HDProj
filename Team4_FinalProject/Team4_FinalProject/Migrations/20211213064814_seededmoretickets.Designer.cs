@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Team4_FinalProject.Models;
 
 namespace Team4_FinalProject.Migrations
 {
     [DbContext(typeof(TicketManagerDbContext))]
-    partial class TicketManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211213064814_seededmoretickets")]
+    partial class seededmoretickets
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,46 +34,24 @@ namespace Team4_FinalProject.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 12, 13, 2, 12, 8, 11, DateTimeKind.Local).AddTicks(5324));
+                        .HasDefaultValue(new DateTime(2021, 12, 13, 0, 48, 13, 390, DateTimeKind.Local).AddTicks(6039));
 
                     b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UserId1")
                         .HasColumnType("int");
 
                     b.HasKey("NoteId");
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("Notes");
+                    b.HasIndex("UserId1");
 
-                    b.HasData(
-                        new
-                        {
-                            NoteId = 1,
-                            Content = "Fixed the... whatever it is.",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TicketId = 4
-                        },
-                        new
-                        {
-                            NoteId = 2,
-                            Content = "Fixed the... whatever it is.",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TicketId = 2
-                        },
-                        new
-                        {
-                            NoteId = 3,
-                            Content = "Fixed the... whatever it is.",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TicketId = 4
-                        },
-                        new
-                        {
-                            NoteId = 4,
-                            Content = "Fixed the... whatever it is.",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TicketId = 1
-                        });
+                    b.ToTable("Notes");
                 });
 
             modelBuilder.Entity("Team4_FinalProject.Models.Ticket", b =>
@@ -84,7 +64,7 @@ namespace Team4_FinalProject.Migrations
                     b.Property<DateTime>("DateOpened")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 12, 13, 2, 12, 8, 7, DateTimeKind.Local).AddTicks(570));
+                        .HasDefaultValue(new DateTime(2021, 12, 13, 0, 48, 13, 385, DateTimeKind.Local).AddTicks(7256));
 
                     b.Property<string>("Issue")
                         .HasColumnType("nvarchar(max)");
@@ -220,7 +200,13 @@ namespace Team4_FinalProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Team4_FinalProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+
                     b.Navigation("Ticket");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Team4_FinalProject.Models.Ticket", b =>

@@ -3,27 +3,33 @@
 @{
     ViewData["Title"] = "Add Ticket";
 }
+<style>
+    #name{
+        display: inline-block;
+        animation:fadingin 2s;
+    }
+</style>
+<h2 class="display-4">Add Ticket For <span id="name" class="text-primary">@ViewBag.User.FirstName @ViewBag.User.LastName</span></h2>
 
-<h2 class="display-4">Add Ticket</h2>
-
-@*
-<div asp-validation-summary="All" class="text-danger"></div>
 <form asp-action="Add" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
-        <label asp-for="Category">Issue Description</label>
-        <input asp-for="Category" class="form-control" />
+        <label asp-for="Issue">Issue Description</label>
+        <textarea rows="8" asp-for="Issue" class="form-control"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="UserId"></label>
-        <select asp-for="UserId" class="form-control"
-                asp-items="@(new SelectList(ViewBag.Users,"UserId"))"></select>
-    </div>
-
+    @if (ViewBag.User.IsTechnician == true)
+    {
+        <div class="form-group">
+            <label asp-for="Status">Status</label>
+            <select asp-for="Status" class="form-control">
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+    }
     <input type="hidden" asp-for="TicketId" />
-
+    <input type="hidden" asp-for="UserId"/>
 
     <button type="submit">Add</button>
     <my-link-button action="Index" controller="Home">Cancel</my-link-button>
 </form>
-*@

@@ -775,7 +775,6 @@ C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_F
 C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Team4_FinalProject.pdb
 C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Team4_FinalProject.genruntimeconfig.cache
 C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Add.cshtml.g.cs
-C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Detail.cshtml.g.cs
 C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\List.cshtml.g.cs
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\bin\Debug\net5.0\appsettings.json
@@ -1156,7 +1155,6 @@ C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\Fi
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Add.cshtml.g.cs
-C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Detail.cshtml.g.cs
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\List.cshtml.g.cs
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
@@ -1168,3 +1166,5 @@ C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\Fi
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\ref\Team4_FinalProject.dll
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Team4_FinalProject.pdb
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Team4_FinalProject.genruntimeconfig.cache
+C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Details.cshtml.g.cs
+C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Details.cshtml.g.cs
