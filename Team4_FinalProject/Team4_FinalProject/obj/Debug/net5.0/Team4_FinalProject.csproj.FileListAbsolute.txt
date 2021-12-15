@@ -1168,3 +1168,4 @@ C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\Fi
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Team4_FinalProject.genruntimeconfig.cache
 C:\Users\Logan\OneDrive - Des Moines Area Community College\C# .NET Framework\FinalProject\Project\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Details.cshtml.g.cs
 C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Ticket\Details.cshtml.g.cs
+C:\Users\chasi\Source\Repos\clspurge\CIS174-T4-HDProj\Team4_FinalProject\Team4_FinalProject\obj\Debug\net5.0\Razor\Views\Note\Add.cshtml.g.cs

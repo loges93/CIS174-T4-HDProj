@@ -1,4 +1,4 @@
-﻿@model TicketNoteViewModel
+﻿@model Ticket
 
 @{
     ViewData["Title"] = " | Ticket Details";
@@ -14,15 +14,18 @@
 
 <p class="p-2 border" style="font-size: 1.4em; min-height: 10em;">@ViewBag.Ticket.Issue</p>
 
+<a asp-controller="Note" asp-action="Add" class="btn btn-primary" asp-route-id="@ViewBag.Ticket.TicketId">Add Note</a>
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary" asp-route-id="@ViewBag.User">Return to Ticket List</a>
+
 <h3 class="m-2 text-primary">Notes: </h3>
-<a class="btn btn-primary mb-2" asp-controller="Note" asp-action="Add" asp-route-data="@ViewBag.Ticket.TicketId">Add Note</a>
+@*<a class="btn btn-primary mb-2" asp-controller="Note" asp-action="Add" asp-route-id="@ViewBag.Ticket.TicketId">Add Note</a>*@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Note Id</th>
             <th>Content</th>
             <th>Date Opened</th>
-            <th></th>
+            @*<th></th>*@
         </tr>
     </thead>
     <tbody>
@@ -39,13 +42,15 @@
                     <td>@note.Content</td>
                 }
                 <td>@note.DateCreated</td>
-                <td>
-                    <a asp-controller="Note" asp-route-id="@note.NoteId" asp-action="Details">View Details</a>
-                </td>
+                @*<td>
+                        <a asp-controller="Note" asp-route-id="@note.NoteId" asp-action="Details">View Details</a>
+                    </td>*@
             </tr>
         }
     </tbody>
 </table>
+
+
 
 
 

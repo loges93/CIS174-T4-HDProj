@@ -53,11 +53,12 @@ namespace Team4_FinalProject.Controllers
         {
             Ticket ticket = context.Tickets.Find(id);
             ViewBag.Ticket = ticket;
+            ViewBag.TicketId = id;
             //Also grabbing tickets like I showed in others I don't know how to load related
             //Entities whilst grabbing only one entity 
             List<Note> notes = context.Notes.Where(c => c.TicketId == id).ToList();
             ViewBag.Notes = notes;
-            return View();
+            return View(ticket);
         }
     }
 }

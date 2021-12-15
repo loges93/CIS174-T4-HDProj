@@ -24,7 +24,7 @@
                     <td>@ticket.Status</td>
                     <td>@ticket.DateOpened</td>
                     <td>
-                        <a asp-controller="Ticket" asp-action="View">View Details</a>
+                        <a asp-controller="Ticket" asp-action="Details" asp-route-id="@ticket.TicketId">View Details</a>
                     </td>
                 </tr>
             }      
