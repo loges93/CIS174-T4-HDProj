@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = " | Ticket Details";
+   
 }
 
 <h1 style="margin-bottom: 1em;">Ticket Details</h1>
@@ -32,7 +33,7 @@
         @foreach (Note note in ViewBag.Notes)
         {
             <tr>
-                <td>@note.TicketId</td>
+                <td>@note.NoteId</td>
                 @if (note.Content.Length > 20)
                 {
                     <td>@note.Content.Substring(0, 20)</td>
