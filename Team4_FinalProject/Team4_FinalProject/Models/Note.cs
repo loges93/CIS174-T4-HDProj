@@ -13,7 +13,7 @@ namespace Team4_FinalProject.Models
 
         public DateTime DateCreated { get; set; }
 
-        [Required(ErrorMessage ="Please enter a note")]
+        [Required(ErrorMessage ="Must have content")]
         public string Content { get; set; }
 
         //Establish Many to One with Ticket
