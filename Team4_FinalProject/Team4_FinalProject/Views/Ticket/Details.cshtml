@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = " | Ticket Details";
+   
 }
 
 <h1 style="margin-bottom: 1em;">Ticket Details</h1>
@@ -32,15 +33,10 @@
         @foreach (Note note in ViewBag.Notes)
         {
             <tr>
-                <td>@note.TicketId</td>
-                @if (note.Content.Length > 20)
-                {
-                    <td>@note.Content.Substring(0, 20)</td>
-                }
-                else
-                {
-                    <td>@note.Content</td>
-                }
+                <td>@note.NoteId</td>
+                <td>
+                    <div style="word-wrap: break-word">@note.Content</div>
+                </td>
                 <td>@note.DateCreated</td>
                 @*<td>
                         <a asp-controller="Note" asp-route-id="@note.NoteId" asp-action="Details">View Details</a>
