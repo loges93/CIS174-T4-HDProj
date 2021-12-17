@@ -12,6 +12,7 @@ namespace Team4_FinalProject.Models
         public int TicketId { get; set; }
 
         [Required(ErrorMessage ="Must specify an issue")]
+        [StringLength(100, ErrorMessage = "Issue must be less than 100 characters")]
         public string Issue { get; set; }
 
         public DateTime DateOpened { get; set; }
