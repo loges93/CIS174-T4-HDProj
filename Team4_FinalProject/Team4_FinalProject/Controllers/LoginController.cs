@@ -30,17 +30,25 @@ namespace Team4_FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = context.Users.Single(u => u.Username == model.Username);
-                if (user.Password == model.Password)
+                try
                 {
-                    HttpContext.Session.SetInt32("user_id", user.UserId);
-                    return RedirectToAction("Index", "Home");
+                    var user = context.Users.Single(u => u.Username == model.Username);
+                    if (user.Password == model.Password)
+                    {
+                        HttpContext.Session.SetInt32("user_id", user.UserId);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Passwords Do Not Match");
+                        return View(model);
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Passwords Do Not Match");
+                catch {
+                    ModelState.AddModelError("", "Username is not valid");
                     return View(model);
-                }
+                };
+
             }
             else
             {
