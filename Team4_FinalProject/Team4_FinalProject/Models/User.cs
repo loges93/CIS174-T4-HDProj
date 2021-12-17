@@ -14,7 +14,7 @@ namespace Team4_FinalProject.Models
         [RegularExpression("^[a-zA-Z0-9", ErrorMessage = "Username cannot contain any special characters")]
         public string Username { get; set; }
         [StringLength(20, MinimumLength = 8, ErrorMessage = "Created password must be between 8 and 20 characters long")]
-        [RegularExpression("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]$", ErrorMessage = "Created password must be 8 characters long with at least 1 letter and 1 number")]
+        [RegularExpression("^[a-zA-Z0-9!@#$&()\\-`.+,/\"]*$", ErrorMessage = "Password must be 8 characters long")]
         public string Password { get; set; }
         [StringLength(25, ErrorMessage = "First name must be 25 or fewer characters long")]
         [RegularExpression("^[a-zA-Z", ErrorMessage = "First name cannot contain numbers or special characters")]
